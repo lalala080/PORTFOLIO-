@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Janiella | Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+<body>
+  <canvas id="bg"></canvas>
+
+  <nav>
+    <h2 class="logo">Janiella<span class="pink">.</span></h2>
+    <ul id="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#orgs">Organizations</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="burger" onclick="toggleNav()">&#9776;</div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-text">
+      <h1>Hi, I’m <span class="pink">Janiella Shane I. Asada</span></h1>
+      <p>Computer Engineering Student • Web Developer • Designer</p>
+      <button onclick="scrollToSection('projects')" class="btn">View My Work</button>
+    </div>
+    <div class="hero-img">
+      <img src="me.jpg" alt="Janiella" />
+    </div>
+
+    <!-- Floating Neon Shapes -->
+    <div class="hero-shapes">
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>I’m a passionate <span class="pink">Computer Engineering</span> student at PRMSU Main. I love blending <span class="pink">technology</span> and <span class="pink">creativity</span> to craft visually stunning, interactive websites.</p>
+    <p>Beyond coding, I enjoy designing neon-inspired visuals, exploring UI/UX trends, and learning new frameworks and tools that help me bring ideas to life.</p>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills-container">
+      <div class="skill-card"><img src="html.jpeg" alt="HTML" /><span>HTML</span></div>
+      <div class="skill-card"><img src="css.jpeg" alt="CSS" /><span>CSS</span></div>
+      <div class="skill-card"><img src="js.jpeg" alt="JavaScript" /><span>JavaScript</span></div>
+      <div class="skill-card"><img src="c++.jpeg" alt="C++" /><span>C++</span></div>
+      <div class="skill-card"><img src="python.jpeg" alt="Python" /><span>Python</span></div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project-container">
+      <a href="https://calculator-jf1q.vercel.app" target="_blank" class="project-card" 
+         data-title="CALCULATOR" 
+         data-desc="A sleek, interactive web calculator with basic arithmetic and percentage functions, designed for quick and easy calculations"
+         data-img="calcu.jpeg">
+        <h3>CALCULATOR</h3>
+      </a>
+
+      <a href="https://to-r3bg.vercel.app" target="_blank" class="project-card" 
+         data-title="TO-DO-LIST" 
+         data-desc="A user-friendly web app to organize tasks, featuring add, delete, and mark-as-done functionalities for better productivity."
+         data-img="todo.jpeg">
+        <h3>TO-DO-LIST</h3>
+      </a>
+
+      <a href="https://login-tau-mocha.vercel.app" target="_blank" class="project-card" 
+         data-title="LOG IN" 
+         data-desc="A stylish and secure web login form with responsive design, user-friendly interface, and smooth interactive elements."
+         data-img="login.jpeg">
+        <h3>LOG IN</h3>
+      </a>
+    </div>
+
+    <!-- Modal -->
+    <div id="projectModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h3 id="modalTitle"></h3>
+        <img id="modalImg" src="" alt="" />
+        <p id="modalDesc"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <h2>Education</h2>
+    <div class="edu-box">
+      <div class="edu-item"><i class="fa-solid fa-book"></i><p>CNHS - Special Program in Foreign Language (2017 - 2021)</p></div>
+      <div class="edu-item"><i class="fa-solid fa-graduation-cap"></i><p>Columban College Main - STEM (2021 - 2023)</p></div>
+      <div class="edu-item"><i class="fa-solid fa-laptop-code"></i><p>PRMSU Main - Computer Engineering (2023 - Present)</p></div>
+    </div>
+  </section>
+
+  <!-- ORGANIZATIONS -->
+  <section id="orgs">
+    <h2>Organizations</h2>
+    <ul class="org-list">
+      <li><i class="fa-solid fa-newspaper"></i> Coefficients - Newsletter of College of Engineering</li>
+      <li><i class="fa-solid fa-lightbulb"></i> ICPEP - Institute of Computer Engineers of the Philippines</li>
+    </ul>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea placeholder="Your Message" required></textarea>
+      <button class="btn" type="submit">Send Message</button>
+    </form>
+    <div class="socials">
+      <a href="https://github.com/lalala080" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://www.facebook.com/janiella.asada" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://www.instagram.com/ella_shanen/" target="_blank"><i class="fab fa-instagram"></i></a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Janiella Shane I. Asada </p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
