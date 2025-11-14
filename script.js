@@ -13,7 +13,7 @@ class Particle {
     this.size = Math.random() * 2;
     this.speedX = Math.random() * 0.6 - 0.3;
     this.speedY = Math.random() * 0.6 - 0.3;
-    this.color = `rgba(255, ${Math.floor(Math.random()*100)}, 200, 0.7)`;
+    this.color = `rgba(255, ${Math.floor(Math.random() * 100)}, 200, 0.7)`;
   }
   update() {
     this.x += this.speedX * 0.8;
@@ -25,7 +25,7 @@ class Particle {
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
     ctx.fillStyle = this.color;
-    ctx.shadowColor = '#ff4dc4';
+    ctx.shadowColor = "#ff4dc4";
     ctx.shadowBlur = 10;
     ctx.fill();
     ctx.shadowBlur = 0;
@@ -42,10 +42,10 @@ function connectParticles() {
     for (let b = a + 1; b < particles.length; b++) {
       const dx = particles[a].x - particles[b].x;
       const dy = particles[a].y - particles[b].y;
-      const distance = Math.sqrt(dx*dx + dy*dy);
-      if(distance < 100) {
+      const distance = Math.sqrt(dx * dx + dy * dy);
+      if (distance < 100) {
         ctx.beginPath();
-        ctx.strokeStyle = `rgba(255,77,196,${1 - distance/100})`;
+        ctx.strokeStyle = `rgba(255,77,196,${1 - distance / 100})`;
         ctx.lineWidth = 0.5;
         ctx.moveTo(particles[a].x, particles[a].y);
         ctx.lineTo(particles[b].x, particles[b].y);
@@ -56,8 +56,11 @@ function connectParticles() {
 }
 
 function animate() {
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-  particles.forEach(p => { p.update(); p.draw(); });
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  particles.forEach((p) => {
+    p.update();
+    p.draw();
+  });
   connectParticles();
   requestAnimationFrame(animate);
 }
@@ -83,7 +86,7 @@ const modalImg = document.getElementById("modalImg");
 const modalDesc = document.getElementById("modalDesc");
 const closeBtn = document.querySelector(".modal .close");
 
-document.querySelectorAll(".project-card").forEach(card => {
+document.querySelectorAll(".project-card").forEach((card) => {
   card.addEventListener("click", () => {
     modal.style.display = "flex";
     modalTitle.textContent = card.dataset.title;
@@ -93,40 +96,45 @@ document.querySelectorAll(".project-card").forEach(card => {
   });
 });
 
-closeBtn.addEventListener("click", () => modal.style.display = "none");
-window.addEventListener("click", e => { if(e.target == modal) modal.style.display = "none"; });
+closeBtn.addEventListener("click", () => (modal.style.display = "none"));
+window.addEventListener("click", (e) => {
+  if (e.target == modal) modal.style.display = "none";
+});
 
 // ===== Section Scroll Animations =====
 const sections = document.querySelectorAll("section");
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting) entry.target.classList.add("animate-section");
-  });
-}, { threshold: 0.2 });
-sections.forEach(section => observer.observe(section));
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) entry.target.classList.add("animate-section");
+    });
+  },
+  { threshold: 0.2 }
+);
+sections.forEach((section) => observer.observe(section));
 
 // ===== Mobile Navbar =====
-function toggleNav(){
+function toggleNav() {
   document.getElementById("nav-links").classList.toggle("show");
 }
 
+// ===== Evaluation Total Script (FIXED + SAFE) =====
+document.addEventListener("DOMContentLoaded", () => {
   const inputs = document.querySelectorAll(".score");
   const total = document.getElementById("totalScore");
 
   function computeTotal() {
     let sum = 0;
 
-    inputs.forEach(i => {
+    inputs.forEach((i) => {
       const max = parseFloat(i.getAttribute("max"));
       let val = parseFloat(i.value);
 
-      // Handle invalid numbers
       if (isNaN(val)) val = 0;
 
-      // Clamp values
       if (val > max) {
         val = max;
-        i.value = max; // auto-correct in UI
+        i.value = max;
       }
       if (val < 0) {
         val = 0;
@@ -139,4 +147,5 @@ function toggleNav(){
     total.textContent = sum;
   }
 
-  inputs.forEach(i => i.addEventListener("input", computeTotal));
+  inputs.forEach((i) => i.addEventListener("input", computeTotal));
+});
