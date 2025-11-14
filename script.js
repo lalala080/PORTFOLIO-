@@ -109,3 +109,34 @@ sections.forEach(section => observer.observe(section));
 function toggleNav(){
   document.getElementById("nav-links").classList.toggle("show");
 }
+
+  const inputs = document.querySelectorAll(".score");
+  const total = document.getElementById("totalScore");
+
+  function computeTotal() {
+    let sum = 0;
+
+    inputs.forEach(i => {
+      const max = parseFloat(i.getAttribute("max"));
+      let val = parseFloat(i.value);
+
+      // Handle invalid numbers
+      if (isNaN(val)) val = 0;
+
+      // Clamp values
+      if (val > max) {
+        val = max;
+        i.value = max; // auto-correct in UI
+      }
+      if (val < 0) {
+        val = 0;
+        i.value = 0;
+      }
+
+      sum += val;
+    });
+
+    total.textContent = sum;
+  }
+
+  inputs.forEach(i => i.addEventListener("input", computeTotal));
