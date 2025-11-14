@@ -186,3 +186,92 @@ footer { text-align:center; padding:1rem; background:#0a0a0a; font-size:0.9rem; 
   section { padding:4rem 1rem; }
   form { width:90%; }
 }
+
+
+.eval-section {
+  background: #0f0f17;
+  padding: 30px;
+  border-radius: 20px;
+  margin-top: 40px;
+  box-shadow: 0 0 20px rgba(130, 80, 255, 0.2);
+}
+
+.eval-title {
+  color: #caaaff;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.eval-table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.eval-table thead {
+  background: linear-gradient(to right, #8133ff, #b566ff);
+  color: white;
+}
+
+.eval-table th,
+.eval-table td {
+  padding: 15px;
+  font-size: 0.95rem;
+}
+
+.eval-table tbody tr {
+  background: #161621;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.eval-table .fixed {
+  color: #b59eff;
+  font-weight: 600;
+}
+
+.eval-table input {
+  width: 70px;
+  padding: 5px;
+  border-radius: 8px;
+  border: none;
+  background: #222233;
+  color: #caaaff;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.eval-table input:focus {
+  outline: 2px solid #9b60ff;
+}
+
+.eval-total {
+  margin-top: 15px;
+  padding: 12px;
+  text-align: center;
+  background: linear-gradient(to right, #2c2b3a, #1e1d29);
+  border-radius: 10px;
+  font-size: 1.2rem;
+  color: #d8b6ff;
+  font-weight: 600;
+}
+
+/* PHONE RESPONSIVE */
+@media (max-width: 600px) {
+  .eval-table th,
+  .eval-table td {
+    padding: 10px;
+    font-size: 0.8rem;
+  }
+
+  .eval-table input {
+    width: 55px;
+    font-size: 0.85rem;
+  }
+
+  .eval-title {
+    font-size: 1.4rem;
+  }
+}
